@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: http-echo
+  labels:
+    app: http-echo
+    service: http-echo
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: http-echo
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: http-echo
+spec:
+  parentRefs:
+  - name: gateway
+    namespace: istio-ingress
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /http-echo
+    backendRefs:
+    - name: http-echo
+      port: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-echo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-echo
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: http-echo
+        version: v1
+    spec:
+      containers:
+      - image: docker.io/mendhak/http-https-echo:31
+        imagePullPolicy: IfNotPresent
+        name: http-echo
+        ports:
+        - containerPort: 8080
