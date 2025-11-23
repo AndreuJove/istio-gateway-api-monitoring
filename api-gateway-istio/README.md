@@ -1,4 +1,6 @@
 
+Docs: https://istio.io/
+
 1. To expose Services type LoadBalancer use:
 ```
 sudo minikube tunnel
