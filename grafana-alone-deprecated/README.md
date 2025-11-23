@@ -1,5 +1,9 @@
 
+If you are using Minikube you need to run:
 
+```
+minikube tunnel
+```
 
 1. Modify the values.yaml with the ip of your LoadBalancer Service
 
