@@ -1,0 +1,6 @@
+env:
+  GF_INSTALL_PLUGINS: victoriametrics-metrics-datasource
+  GF_SERVER_ROOT_URL: http://10.110.107.127/grafana
+
+service:
+  port: 8080
