@@ -12,7 +12,7 @@ Linux amd64 Ubuntu 22.04.5 LTS (Jammy Jellyfish)
 
 1. Install minikube:
 ```
-curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
+curl -LO https://github.com/kubernetes/minikube/releases/download/v1.36.0/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 ```
 Verify installation:
@@ -23,7 +23,7 @@ minikube version
 
 2. Install kubectl:
 ```
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/v1.34.1/bin/linux/amd64/kubectl"
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/kubectl
 ```
