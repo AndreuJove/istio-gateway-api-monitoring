@@ -27,7 +27,7 @@ curl -LO "https://dl.k8s.io/release/v1.34.1/bin/linux/amd64/kubectl"
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/kubectl
 ```
-Verify installation:
+- Verify installation:
 ```
 kubectl version
 ```
@@ -38,14 +38,12 @@ kubectl version
 curl -LO https://get.helm.sh/helm-v3.19.2-linux-amd64.tar.gz
 tar -zxvf helm-v3.19.2-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
-
 ```
 
 4. Install istioctl
 ```
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.28.0 TARGET_ARCH=x86_64 sh -
 sudo mv istio-1.28.0/bin/istioctl /usr/local/bin/istioctl
-
 ```
 
 ## Installation:

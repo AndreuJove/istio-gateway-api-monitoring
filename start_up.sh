@@ -31,15 +31,18 @@ helm repo add cnpg https://cloudnative-pg.github.io/charts
 helm upgrade --install cnpg \
   --namespace cnpg-system \
   --create-namespace \
+  --version 0.26.1 \
+  --values postresql/values-cloudnative-pg.yaml \
   cnpg/cloudnative-pg
 
+kubectl wait --for=jsonpath='{.status.phase}'=Running pod -l app.kubernetes.io/instance=cnpg -l app.kubernetes.io/name=cloudnative-pg --timeout=180s -n cnpg-system
 
 # TO DO: password as input variable of the script
 helm upgrade --install database \
   --namespace database \
   --create-namespace \
   --version 0.3.1 \
-  --values postresql/values.yaml \
+  --values postresql/values-cluster.yaml \
   --set postgresql.password="mysecurepassword123" \
   cnpg/cluster
 
@@ -61,6 +64,7 @@ kubectl apply -f victoria-metrics-grafana/manifests/http_route.yaml
 kubectl wait --for=condition=Ready pod -l app.kubernetes.io/instance=vmks -l app.kubernetes.io/name=grafana -n vmks --timeout=250s
 
 echo "Go to http://${INGRESS_HOST}/grafana"
-echo "Password Grafana: ${PASSWORD_GRAFANA}"
+echo "Username: admin
+echo "Password: ${PASSWORD_GRAFANA}"
 
 
