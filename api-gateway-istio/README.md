@@ -1,5 +1,7 @@
 
-Docs: https://istio.io/
+Docs: 
+- https://istio.io/
+- https://istio.io/latest/docs/tasks/traffic-management/ingress/gateway-api/
 
 1. To expose Services type LoadBalancer use:
 ```
@@ -21,7 +23,7 @@ istioctl install --set profile=minimal -y
 Is required to use the Service type LoadBalancer 
 
 
-4. Install gateway and http route:
+4. Install gateway
 ```
 kubectl apply -f gateway.yaml
 ```
