@@ -1048,9 +1048,9 @@ defaultDatasources:
 grafana:
   enabled: true
   # all values for grafana helm chart can be specified here
-  env:
-    GF_SERVER_ROOT_URL: http://<INGRESS_DOMAIN>/grafana
-    GF_SERVER_DOMAIN: <INGRESS_DOMAIN> 
+  # env:
+  #   GF_SERVER_ROOT_URL: http://10.111.166.210/grafana
+  #   GF_SERVER_DOMAIN: 10.111.166.210 
   sidecar:
     datasources:
       enabled: true

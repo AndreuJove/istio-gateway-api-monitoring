@@ -54,7 +54,7 @@ sudo mv istio-1.28.0/bin/istioctl /usr/local/bin/istioctl
 1. Start a minikube cluster:
 
 ```
-minikube start -p test-istio --kubernetes-version=v1.33.0 --memory=4096
+minikube start -p test-istio --kubernetes-version=v1.33.0 --cpus=4 --memory=4096
 ```
 
 2. Check the nodes:
@@ -81,3 +81,8 @@ minikube tunnel
 
 /grafana
 /http-echo
+
+7. Delete minikube:
+```
+minikube delete -p test-istio
+```
