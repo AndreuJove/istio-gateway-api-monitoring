@@ -32,5 +32,52 @@ Verify installation:
 kubectl version
 ```
 
-### Install Kubernetes Gateway API using Istio:
+3. Install helm
 
+```
+curl -LO https://get.helm.sh/helm-v3.19.2-linux-amd64.tar.gz
+tar -zxvf helm-v3.19.2-linux-amd64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/helm
+
+```
+
+4. Install istioctl
+```
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.28.0 TARGET_ARCH=x86_64 sh -
+sudo mv istio-1.28.0/bin/istioctl /usr/local/bin/istioctl
+
+```
+
+## Installation:
+
+
+1. Start a minikube cluster:
+
+```
+minikube start -p test-istio --kubernetes-version=v1.33.0 --memory=4096
+```
+
+2. Check the nodes:
+```
+kubectl get nodes
+```
+
+3. Activate profile of minikube:
+```
+minikube profile test-istio
+```
+
+4. To expose Services type LoadBalancer use:
+```
+minikube tunnel
+```
+
+5. Execute script:
+```
+./start_up.sh
+```
+
+6. Go to:
+
+/grafana
+/http-echo
